@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>hohn_tanner.savannah/hohn_tanner.savannah.HelloApplication</mainClass>
+                            <mainClass>hohn_tanner.savannah/hohn_tanner.savannah.ApplicationStart</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
