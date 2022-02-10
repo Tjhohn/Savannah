@@ -17,6 +17,7 @@ public class Layout implements PropertyChangeListener{
     private Pane root;
     private Integer gridSize = 3;
     private Savannah model;
+    private SavannahView grid;
 
     //top
     private Text day = new Text("Day: 0");
@@ -48,7 +49,7 @@ public class Layout implements PropertyChangeListener{
         ObservableList<Node> rootList = root.getChildren();
         HBox lower = new HBox();
         VBox.setVgrow(lower, Priority.ALWAYS);
-        Pane grid = makeCenterContents(gridSize);
+        grid = new SavannahView();
         HBox.setHgrow(grid, Priority.ALWAYS);
         ObservableList lowerList = lower.getChildren();
         lowerList.addAll(makeSideContents(),grid );
@@ -113,28 +114,9 @@ public class Layout implements PropertyChangeListener{
         return root;
     }
 
-    private Pane makeCenterContents(Integer size){
-        GridPane grid = new GridPane();
-        for( int i = 0; i < size; i++){
-            RowConstraints row = new RowConstraints();
-            row.setVgrow(Priority.ALWAYS);
-            grid.getRowConstraints().add(row);
-            ColumnConstraints column = new ColumnConstraints();
-            column.setHgrow(Priority.ALWAYS);
-            grid.getColumnConstraints().add(column);
-            for(int j = 0; j < size; j++){
-                Button btn = new Button("N:0");
-                btn.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-                grid.add(btn, j, i);
-            }
-        }
-        return  grid;
-    }
-
     public Pane getLayout(){
         return root;
     }
-
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
