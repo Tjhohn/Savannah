@@ -95,6 +95,7 @@ public class ApplicationStart extends Application {
 
     private Pane makeSideContents(){
         VBox root = new VBox();
+        root.setAlignment(Pos.CENTER);
         ObservableList<Node> listMain = root.getChildren();
 
         VBox.setVgrow(springSideTop, Priority.ALWAYS);
