@@ -8,11 +8,15 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 //builds layout? most likely move the stuff that creates stuff from Appstart here
-public class Layout {
+public class Layout implements PropertyChangeListener{
     //main
     private Pane root;
-    private Integer gridSize;
+    private Integer gridSize = 3;
+    private Savannah model;
 
     //top
     private Text day = new Text("Day: 0");
@@ -33,8 +37,9 @@ public class Layout {
     private Text animalInfo = new Text("Animal Info");
     private ComboBox<String> myList;
 
-    public Layout(Integer sizeOfGrid){
-        gridSize = sizeOfGrid;
+    public Layout(Savannah model){
+        this.model = model;
+        model.addObserver( this);
         root = makeContents();
     }
 
@@ -131,4 +136,8 @@ public class Layout {
     }
 
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        //stuff for model
+    }
 }

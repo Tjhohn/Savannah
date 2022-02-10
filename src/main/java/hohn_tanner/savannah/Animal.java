@@ -12,7 +12,15 @@ public class Animal {
     }
 
     public void newDay(){
+        this.health -=dayDecrement;
+    }
 
+    public Integer getHealth(){
+        return health;
+    }
+
+    public String getName(){
+        return name;
     }
 
 }

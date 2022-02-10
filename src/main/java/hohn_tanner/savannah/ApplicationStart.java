@@ -16,18 +16,27 @@ public class ApplicationStart extends Application {
     public static final int WIDTH = 700;
     public static final int HEIGHT = 600;
 
+    //Model
+    private Savannah model;
+
     //View
     private Layout layout;
 
+    //Controller
+    private Controller controller;
+
     @Override
     public void start(Stage stage) throws IOException {
-        layout = new Layout(3);
+        model = new Savannah();
+        layout = new Layout(model);
         Scene scene = new Scene(layout.getLayout(),WIDTH , HEIGHT);
-
         stage.setTitle("Savannah");
         stage.setScene(scene);
         stage.setMinWidth(WIDTH);
         stage.setMinHeight(HEIGHT);
+
+        controller = new Controller(model, layout);
+
         stage.show();
     }
 

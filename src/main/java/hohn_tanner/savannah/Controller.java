@@ -1,30 +1,15 @@
 package hohn_tanner.savannah;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-
 public class Controller {
 
-    private boolean isOn = false;
+    private Layout layout;
+    private Savannah model;
 
-    @FXML
-    private Label welcomeText;
-    @FXML
-    private Button welcomeBtn;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        if (!isOn){
-            welcomeText.setText("Welcome to JavaFX Application!");
-            welcomeBtn.setText("Goodbye!");
-        }
-        else{
-            welcomeText.setText("Goodbye from JavaFX Application!");
-            welcomeBtn.setText("Hello!");
-        }
-        isOn = !isOn;
+    public Controller(Savannah data, Layout layout) {
+        this.layout = layout;
+        model = data;
     }
+
 
 
 }
