@@ -21,12 +21,22 @@ public class Tile {
 
     public int getCol(){return col;}
 
+    public Animal getAnimal(){
+        return animalHolder;
+    }
+
     public void addObserver(PropertyChangeListener obv) {
         subject.addPropertyChangeListener(obv); //GRADING: SUBJECT
     }
 
     public void newDay(){
         animalHolder.newDay();
+        if(animalHolder.getName() == "Z" || animalHolder.getName() == "C"){
+            if(animalHolder.getHealth() <= 0){
+                animalHolder = new None();
+            }
+        }
+        subject.firePropertyChange("newDay", null, animalHolder);
     }
 
     public void setAnimal(Animal a){

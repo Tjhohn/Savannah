@@ -32,8 +32,12 @@ public class TileView extends Button implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
         if (Objects.equals(evt.getPropertyName(), "setAnimal"))
         {
-
+            setText(tile.getAnimal().getName()+":"+ tile.getAnimal().getHealth().toString());
         }
-        setText("observed??");
+        if (Objects.equals(evt.getPropertyName(), "newDay"))
+        {
+            setText(tile.getAnimal().getName()+":"+ tile.getAnimal().getHealth().toString());
+        }
+
     }
 }

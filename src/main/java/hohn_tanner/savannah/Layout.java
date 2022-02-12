@@ -36,6 +36,7 @@ public class Layout implements PropertyChangeListener{
     private Region springSideTop = new Region();
     private Region springSideMid = new Region();
     private Region springSideBot = new Region();
+    private ToggleGroup group;
     private Text animalInfo = new Text("Animal Info");
     private ComboBox<String> myList;
 
@@ -101,7 +102,7 @@ public class Layout implements PropertyChangeListener{
         myList.getSelectionModel().select(0); //set the current selection
 
         //radio buttons
-        ToggleGroup group = new ToggleGroup(); //the group where only 1 can be selected
+        group = new ToggleGroup(); //the group where only 1 can be selected
         RadioButton rBtn1 = new RadioButton("Add");
         RadioButton rBtn2 = new RadioButton("View");
         rBtn1.setToggleGroup(group);
@@ -118,9 +119,7 @@ public class Layout implements PropertyChangeListener{
     public Pane getGrid(){
         return grid;
     }
-
     public Pane getLayout(){ return root; }
-
     public Button getNewDayBtn(){
         return newDayBtn;
     }
@@ -134,7 +133,8 @@ public class Layout implements PropertyChangeListener{
         return eightBtn;
     }
     public ComboBox<String> getComboBox() {return myList; }
-
+    public ToggleGroup getGroup(){ return group; }
+    public Text getAnimalInfo(){ return animalInfo; }
 
     @Override //GRADING: OBSERVE
     public void propertyChange(PropertyChangeEvent evt) {
@@ -146,11 +146,24 @@ public class Layout implements PropertyChangeListener{
         }
         if (Objects.equals(evt.getPropertyName(), "resize"))
         {
-            grid.resize((Integer)evt.getNewValue(), (Integer)evt.getNewValue());
+            day.setText("Day: " + model.getDayCnt().toString());
+            filled.setText("Filled: " + model.getFillCnt().toString());
+            died.setText("Died: " + model.getDeadCnt().toString());
+            animalInfo.setText("Animal Info");
+            myList.getSelectionModel().select(0);
         }
         if (Objects.equals(evt.getPropertyName(), "setAnimal"))
         {
             grid.propertyChange(evt);
+        }
+        if (Objects.equals(evt.getPropertyName(), "viewInfo"))
+        {
+            animalInfo.setText( evt.getNewValue().toString());
+        }
+        if (Objects.equals(evt.getPropertyName(), "updateCount"))
+        {
+            filled.setText("Filled: "+ model.getFillCnt().toString());
+            died.setText("Died: " + model.getDeadCnt().toString());
         }
     }
 }

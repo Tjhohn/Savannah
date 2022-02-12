@@ -18,15 +18,9 @@ public class SavannahView extends GridPane implements PropertyChangeListener {
     }
 
     private void clearGrid(){
-        while(this.getRowConstraints().size() > 0){
-            this.getRowConstraints().remove(0);
-        }
-
-        while(this.getColumnConstraints().size() > 0){
-            this.getColumnConstraints().remove(0);
-        }
-        clearConstraints(this);
-        this.getChildren().removeAll(this.getChildren());
+        getChildren().clear();
+        getRowConstraints().clear();
+        getColumnConstraints().clear();
     }
 
     public void passEvent(PropertyChangeEvent evt){

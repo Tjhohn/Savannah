@@ -25,13 +25,22 @@ public class Savannah {
 
     public void newDay(){
         dayCnt++;
+        updateTilesDay();
         subject.firePropertyChange("newDay", null, this.dayCnt);//GRADING: TRIGGER
     }
 
     public void changeSize(Integer newSize){
         size = newSize;
+        dayCnt = 0;
+        deadCnt = 0;
+        fillCnt = 0;
         fillTileArray();
         subject.firePropertyChange("resize", null, this.size); //GRADING: TRIGGER
+        subject.firePropertyChange("resize", null, this.dayCnt);//GRADING: TRIGGER
+    }
+
+    public void updateInfo(String info){
+        subject.firePropertyChange("viewInfo", null, info);//GRADING: TRIGGER
     }
 
     public Integer getDayCnt(){
@@ -50,6 +59,30 @@ public class Savannah {
 
     public Tile getTile(int row, int col){
         return tileArray[row][col];
+    }
+
+    public void increaseFill(){
+        fillCnt++;
+        subject.firePropertyChange("updateCount", null, deadCnt);//GRADING: TRIGGER
+    }
+
+    public void decreaseFill(){
+        fillCnt--;
+        subject.firePropertyChange("updateCount", null, deadCnt);//GRADING: TRIGGER
+    }
+
+    private void updateTilesDay(){
+        for( int i = 0; i < size; i++){
+            for( int j = 0; j < size; j++){
+                Animal prev_animal = tileArray[i][j].getAnimal();
+                tileArray[i][j].newDay();
+                if(tileArray[i][j].getAnimal() != prev_animal){
+                    deadCnt++;
+                    fillCnt--;
+                    subject.firePropertyChange("updateCount", null, deadCnt);//GRADING: TRIGGER
+                }
+            }
+        }
     }
 
     private void fillTileArray(){
