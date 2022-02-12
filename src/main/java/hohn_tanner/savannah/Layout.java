@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Objects;
 
 //builds layout? most likely move the stuff that creates stuff from Appstart here
 public class Layout implements PropertyChangeListener{
@@ -49,7 +50,7 @@ public class Layout implements PropertyChangeListener{
         ObservableList<Node> rootList = root.getChildren();
         HBox lower = new HBox();
         VBox.setVgrow(lower, Priority.ALWAYS);
-        grid = new SavannahView();
+        grid = new SavannahView(model);//ref to model
         HBox.setHgrow(grid, Priority.ALWAYS);
         ObservableList lowerList = lower.getChildren();
         lowerList.addAll(makeSideContents(),grid );
@@ -114,12 +115,42 @@ public class Layout implements PropertyChangeListener{
         return root;
     }
 
-    public Pane getLayout(){
-        return root;
+    public Pane getGrid(){
+        return grid;
     }
 
-    @Override
+    public Pane getLayout(){ return root; }
+
+    public Button getNewDayBtn(){
+        return newDayBtn;
+    }
+    public Button get3Btn(){
+        return threeBtn;
+    }
+    public Button get5Btn(){
+        return fiveBtn;
+    }
+    public Button get8Btn(){
+        return eightBtn;
+    }
+    public ComboBox<String> getComboBox() {return myList; }
+
+
+    @Override //GRADING: OBSERVE
     public void propertyChange(PropertyChangeEvent evt) {
         //stuff for model
+        if (evt.getPropertyName() == "newDay"){
+            day.setText("Day: " + model.getDayCnt().toString());
+            filled.setText("Filled: " + model.getFillCnt().toString());
+            died.setText("Died: " + model.getDeadCnt().toString());
+        }
+        if (Objects.equals(evt.getPropertyName(), "resize"))
+        {
+            grid.resize((Integer)evt.getNewValue(), (Integer)evt.getNewValue());
+        }
+        if (Objects.equals(evt.getPropertyName(), "setAnimal"))
+        {
+            grid.propertyChange(evt);
+        }
     }
 }

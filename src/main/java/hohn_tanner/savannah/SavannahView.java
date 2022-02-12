@@ -4,12 +4,37 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
-public class SavannahView extends GridPane {
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Objects;
+
+public class SavannahView extends GridPane implements PropertyChangeListener {
 
     private Savannah model;
 
-    public SavannahView(){
+    public SavannahView(Savannah model){
+        this.model = model;
         makePane(3);
+    }
+
+    private void clearGrid(){
+        while(this.getRowConstraints().size() > 0){
+            this.getRowConstraints().remove(0);
+        }
+
+        while(this.getColumnConstraints().size() > 0){
+            this.getColumnConstraints().remove(0);
+        }
+        clearConstraints(this);
+        this.getChildren().removeAll(this.getChildren());
+    }
+
+    public void passEvent(PropertyChangeEvent evt){
+        for( int i = 0; i < model.getSize(); i++){
+            for(int j = 0; j < model.getSize(); j++){
+
+            }
+        }
     }
 
     public void setModel(Savannah model) {
@@ -21,6 +46,7 @@ public class SavannahView extends GridPane {
     }
 
     private void makePane(Integer size){
+        clearGrid();
         for( int i = 0; i < size; i++){
             RowConstraints row = new RowConstraints();
             row.setVgrow(Priority.ALWAYS);
@@ -29,12 +55,14 @@ public class SavannahView extends GridPane {
             column.setHgrow(Priority.ALWAYS);
             this.getColumnConstraints().add(column);
             for(int j = 0; j < size; j++){
-                Button btn = new Button("N:0");
-                btn.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                TileView btn = new TileView("N:0",i,j, model.getTile(i,j));
                 this.add(btn, j, i);
             }
         }
     }
 
+    @Override //GRADING: OBSERVE
+    public void propertyChange(PropertyChangeEvent evt) {
 
+    }
 }
