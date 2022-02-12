@@ -7,8 +7,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
 
-import javax.swing.*;
-
 public class Controller {
 
     private Layout layout;
@@ -93,6 +91,13 @@ public class Controller {
         else if(index == 1){
             return new Cheetah();
         }
+        else if(index == 2){
+            return new Elephant();
+        }
+        else if(index == 3){
+            return new Giraffe();
+        }
+
         return new None();
     }
 

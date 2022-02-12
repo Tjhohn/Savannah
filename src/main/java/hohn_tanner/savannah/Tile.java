@@ -31,7 +31,8 @@ public class Tile {
 
     public void newDay(){
         animalHolder.newDay();
-        if(animalHolder.getName() == "Z" || animalHolder.getName() == "C"){
+        if(animalHolder.getName() == "Z" || animalHolder.getName() == "C"
+                || animalHolder.getName() == "E"|| animalHolder.getName() == "G"){//Can check if not None instead
             if(animalHolder.getHealth() <= 0){
                 animalHolder = new None();
             }

@@ -1,12 +1,8 @@
 package hohn_tanner.savannah;
 
-import javafx.collections.ObservableList;
-import javafx.scene.control.Button;
 import javafx.scene.layout.*;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Objects;
 
 public class SavannahView extends GridPane implements PropertyChangeListener {
 

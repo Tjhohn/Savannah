@@ -97,7 +97,7 @@ public class Layout implements PropertyChangeListener{
         VBox.setVgrow(springSideBot, Priority.ALWAYS);
 
         ObservableList<String> options =
-                FXCollections.observableArrayList( "Zebra", "Cheetah");
+                FXCollections.observableArrayList( "Zebra", "Cheetah", "Elephant", "Giraffe");
         myList = new ComboBox<>(options);
         myList.getSelectionModel().select(0); //set the current selection
 
