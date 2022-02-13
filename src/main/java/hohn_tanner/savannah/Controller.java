@@ -56,10 +56,10 @@ public class Controller {
                     if(currAnimal.getName().equals(getAnimalViaSelection(
                             layout.getComboBox().getSelectionModel().getSelectedIndex()).getName())){
                         pressed.getTile().setAnimal(new None());
-                        model.decreaseFill();
+                        model.fillUpdate();
                     } else {
                         pressed.getTile().setAnimal(getAnimalViaSelection(layout.getComboBox().getSelectionModel().getSelectedIndex()));
-                        model.increaseFill();
+                        model.fillUpdate();
                     }
                 }else{
                     layout.getAnimalInfo().setText(currAnimal.getName() + "\nHealth: "+ currAnimal.getHealth() +

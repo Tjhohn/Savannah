@@ -59,13 +59,8 @@ public class Savannah {
         return tileArray[row][col];
     }
 
-    public void increaseFill(){
-        fillCnt++;
-        subject.firePropertyChange("updateCount", null, deadCnt);//GRADING: TRIGGER
-    }
-
-    public void decreaseFill(){
-        fillCnt--;
+    public void fillUpdate(){
+        checkFill();
         subject.firePropertyChange("updateCount", null, deadCnt);//GRADING: TRIGGER
     }
 
@@ -81,6 +76,19 @@ public class Savannah {
                 }
             }
         }
+    }
+
+    private void checkFill(){
+        Integer temp_count = 0;
+        for( int i = 0; i < size; i++){
+            for( int j = 0; j < size; j++){
+                if(!(tileArray[i][j].getAnimal().getFirstLetter().equals("N")))
+                {
+                    temp_count++;
+                }
+            }
+        }
+        fillCnt = temp_count;
     }
 
     private void fillTileArray(){
