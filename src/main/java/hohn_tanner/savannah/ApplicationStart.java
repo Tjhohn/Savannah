@@ -42,7 +42,7 @@ package hohn_tanner.savannah;
 //Extension 1: <4.c> <5> <Add more animal types>: <have 3 more options in dropdown: Lion with 46 health and loses 4 each new day
 // Elephant with 50 health and loses 3 health each day, and Giraffe with 14 health and loses 2 each day>
 //Extension 2: <2a> <5> <Mark rectangle shown in animal section>: <Animal Info now has the row and column number shown as well>
-//Etc.
+//Extension 3: <2b> <10> <Add images with text>: <Tile view now shows an image I made myself for each animal(I did my best okay!!)>
 //
 //
 //The grade you compute is the starting point for course staff, who reserve the right to change the grade if they disagree with your assessment and to deduct points for other issues they may encounter, such as errors in the submission process, naming issues, etc.
@@ -52,8 +52,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ApplicationStart extends Application {
-    public static final int WIDTH = 700;
-    public static final int HEIGHT = 600;
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 700;
 
     //Model
     private Savannah model;
@@ -71,8 +71,8 @@ public class ApplicationStart extends Application {
         Scene scene = new Scene(layout.getLayout(),WIDTH , HEIGHT);
         stage.setTitle("Savannah");
         stage.setScene(scene);
-        stage.setMinWidth(WIDTH);
-        stage.setMinHeight(HEIGHT);
+        stage.setMinWidth(700);
+        stage.setMinHeight(600);
 
         controller = new Controller(model, layout);
 
