@@ -52,9 +52,9 @@ public class Controller {
                 Animal currAnimal = pressed.getTile().getAnimal();
                 String toggleText = getToggleText();
 
-                if(toggleText == "Add"){
-                    if(currAnimal.getName() == getAnimalViaSelection(
-                            layout.getComboBox().getSelectionModel().getSelectedIndex()).getName()){///this is broken
+                if(toggleText.equals("Add")){
+                    if(currAnimal.getName().equals(getAnimalViaSelection(
+                            layout.getComboBox().getSelectionModel().getSelectedIndex()).getName())){
                         pressed.getTile().setAnimal(new None());
                         model.decreaseFill();
                     } else {
@@ -62,8 +62,10 @@ public class Controller {
                         model.increaseFill();
                     }
                 }else{
-                    layout.getAnimalInfo().setText(currAnimal.getName() + "\nHealth: "+ currAnimal.getHealth());
-                    model.updateInfo(currAnimal.getName() + "\nHealth: "+ currAnimal.getHealth());
+                    layout.getAnimalInfo().setText(currAnimal.getName() + "\nHealth: "+ currAnimal.getHealth() +
+                            "\nRow: " + pressed.getTile().getRow() + "\nColumn: " + pressed.getTile().getCol());
+                    model.updateInfo(currAnimal.getName() + "\nHealth: "+ currAnimal.getHealth() +
+                            "\nRow: " + pressed.getTile().getRow() + "\nColumn: " + pressed.getTile().getCol());
                 }
 
             }

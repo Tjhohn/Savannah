@@ -39,9 +39,9 @@ package hohn_tanner.savannah;
 // I believe I have all standard points from above.
 //
 //Final Tier: Extensions 30
-//Extension 1: <4.c> <5> <Add more animal types>: <have 3 more options in dropdown Lion with 46 health and loses 4 each new day
+//Extension 1: <4.c> <5> <Add more animal types>: <have 3 more options in dropdown: Lion with 46 health and loses 4 each new day
 // Elephant with 50 health and loses 3 health each day, and Giraffe with 14 health and loses 2 each day>
-//Extension 2: <number> <points> <name>: <how to test/find if applicable>
+//Extension 2: <2a> <5> <Mark rectangle shown in animal section>: <Animal Info now has the row and column number shown as well>
 //Etc.
 //
 //
