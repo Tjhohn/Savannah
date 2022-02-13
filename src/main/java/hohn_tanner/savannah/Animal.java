@@ -23,4 +23,6 @@ public class Animal {
         return name;
     }
 
+    public String getFirstLetter(){ return Character.toString(name.charAt(0)); }
+
 }

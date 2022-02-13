@@ -97,7 +97,7 @@ public class Layout implements PropertyChangeListener{
         VBox.setVgrow(springSideBot, Priority.ALWAYS);
 
         ObservableList<String> options =
-                FXCollections.observableArrayList( "Zebra", "Cheetah", "Elephant", "Giraffe");
+                FXCollections.observableArrayList( "Zebra", "Cheetah", "Elephant", "Giraffe", "Lion");
         myList = new ComboBox<>(options);
         myList.getSelectionModel().select(0); //set the current selection
 
@@ -151,6 +151,7 @@ public class Layout implements PropertyChangeListener{
             died.setText("Died: " + model.getDeadCnt().toString());
             animalInfo.setText("Animal Info");
             myList.getSelectionModel().select(0);
+            grid.resize( (Integer)evt.getNewValue(), (Integer) evt.getNewValue());
         }
         if (Objects.equals(evt.getPropertyName(), "setAnimal"))
         {

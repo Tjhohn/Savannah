@@ -4,7 +4,7 @@ public class Zebra extends Animal{
 
 
     public Zebra() {
-        super("Z", 8, 2);
+        super("Zebra", 8, 2);
 
     }
 }

@@ -54,7 +54,7 @@ public class Controller {
 
                 if(toggleText == "Add"){
                     if(currAnimal.getName() == getAnimalViaSelection(
-                            layout.getComboBox().getSelectionModel().getSelectedIndex()).getName()){
+                            layout.getComboBox().getSelectionModel().getSelectedIndex()).getName()){///this is broken
                         pressed.getTile().setAnimal(new None());
                         model.decreaseFill();
                     } else {
@@ -96,6 +96,9 @@ public class Controller {
         }
         else if(index == 3){
             return new Giraffe();
+        }
+        else if(index == 4){
+            return new Lion();
         }
 
         return new None();

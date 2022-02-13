@@ -2,7 +2,6 @@ package hohn_tanner.savannah;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 
 public class Savannah {
 
@@ -36,7 +35,6 @@ public class Savannah {
         fillCnt = 0;
         fillTileArray();
         subject.firePropertyChange("resize", null, this.size); //GRADING: TRIGGER
-        subject.firePropertyChange("resize", null, this.dayCnt);//GRADING: TRIGGER
     }
 
     public void updateInfo(String info){
