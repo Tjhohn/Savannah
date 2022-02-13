@@ -6,9 +6,24 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
+import javafx.scene.image.Image;
+
+import java.util.Objects;
 
 public class Controller {
 
+    private final Image none = new Image(
+            Objects.requireNonNull(getClass().getResourceAsStream("Empty.jpg")), 40, 40, false, false);
+    private final Image zebra = new Image(
+            Objects.requireNonNull(getClass().getResourceAsStream("zebraprint.png")), 40, 40, false, false);
+    private final Image cheetah = new Image(
+            Objects.requireNonNull(getClass().getResourceAsStream("giraffeprint.png")), 40, 40, false, false);
+    private final Image lion = new Image(
+            Objects.requireNonNull(getClass().getResourceAsStream("lion.png")), 40, 40, false, false);
+    private final Image elephant = new Image(
+            Objects.requireNonNull(getClass().getResourceAsStream("elephant.png")), 40, 40, false, false);
+    private final Image giraffe = new Image(
+            Objects.requireNonNull(getClass().getResourceAsStream("giraffe.png")), 40, 40, false, false);
     private Layout layout;
     private Savannah model;
 
@@ -64,6 +79,7 @@ public class Controller {
                 }else{
                     layout.getAnimalInfo().setText(currAnimal.getName() + "\nHealth: "+ currAnimal.getHealth() +
                             "\nRow: " + pressed.getTile().getRow() + "\nColumn: " + pressed.getTile().getCol());
+                    imageforAnimal(currAnimal);
                     model.updateInfo(currAnimal.getName() + "\nHealth: "+ currAnimal.getHealth() +
                             "\nRow: " + pressed.getTile().getRow() + "\nColumn: " + pressed.getTile().getCol());
                 }
@@ -76,6 +92,7 @@ public class Controller {
             public void changed(ObservableValue<? extends Toggle> observableValue, Toggle toggle, Toggle t1) {
                 if(getToggleText() != "View"){
                     model.updateInfo("Animal Info");
+                    layout.getImageView().setImage(null);
                 }
             }
         });
@@ -102,9 +119,27 @@ public class Controller {
         else if(index == 4){
             return new Lion();
         }
-
         return new None();
     }
 
-
+    private void imageforAnimal(Animal a){
+        if(a.getName().equals("Giraffe")){
+            layout.getImageView().setImage(giraffe);
+        }
+        else if(a.getName().equals("Cheetah")){
+            layout.getImageView().setImage(cheetah);
+        }
+        else if(a.getName().equals("Lion")){
+            layout.getImageView().setImage(lion);
+        }
+        else if(a.getName().equals("Zebra")){
+            layout.getImageView().setImage(zebra);
+        }
+        else if(a.getName().equals("Elephant")){
+            layout.getImageView().setImage(elephant);
+        }
+        else {
+            layout.getImageView().setImage(none);
+        }
+    }
 }

@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
@@ -38,6 +39,7 @@ public class Layout implements PropertyChangeListener{
     private Region springSideBot = new Region();
     private ToggleGroup group;
     private Text animalInfo = new Text("Animal Info");
+    private  ImageView imageView = new ImageView();
     private ComboBox<String> myList;
 
     public Layout(Savannah model){
@@ -111,7 +113,7 @@ public class Layout implements PropertyChangeListener{
         rBtn2.setLayoutY(220);
         group.selectToggle( rBtn1 );
 
-        listMain.addAll(springSideTop, myList, rBtn1, rBtn2,springSideMid, animalInfo, springSideBot);
+        listMain.addAll(springSideTop, myList, rBtn1, rBtn2,springSideMid, animalInfo, imageView, springSideBot);
 
         return root;
     }
@@ -135,6 +137,7 @@ public class Layout implements PropertyChangeListener{
     public ComboBox<String> getComboBox() {return myList; }
     public ToggleGroup getGroup(){ return group; }
     public Text getAnimalInfo(){ return animalInfo; }
+    public ImageView getImageView(){ return imageView; }
 
     @Override //GRADING: OBSERVE
     public void propertyChange(PropertyChangeEvent evt) {

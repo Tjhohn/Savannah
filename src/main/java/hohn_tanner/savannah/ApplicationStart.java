@@ -39,12 +39,13 @@ package hohn_tanner.savannah;
 // I believe I have all standard points from above.
 //
 //Final Tier: Extensions 30
-//Extension 1: <4.c> <5> <Add more animal types>: <have 3 more options in dropdown: Lion with 46 health and loses 4 each new day
-// Elephant with 50 health and loses 3 health each day, and Giraffe with 14 health and loses 2 each day>
-//Extension 2: <2a> <5> <Mark rectangle shown in animal section>: <Animal Info now has the row and column number shown as well>
-//Extension 3: <2b> <10> <Add images with text>: <Tile view now shows an image I made myself for each animal(I did my best okay!!)>
+//done  Extension 1: <4.c> <5> <Add more animal types>: <have 3 more options in dropdown: Lion with 46 health and loses 4 each new day
+//done  Elephant with 50 health and loses 3 health each day, and Giraffe with 14 health and loses 2 each day>
+//done  Extension 2: <2a> <5> <Mark rectangle shown in animal section>: <Animal Info now has the row and column number shown as well>
+//done  Extension 3: <2b> <10> <Add images with text to tile>: <Tile view now shows an image I made myself for each animal(I did my best okay!!)>
+//done  Extension 4: <2c> <10> <Add images to info section>: <info area now shows an image I made myself for when viewing tile details(I did my best okay!!)>
 //
-//
+// finished extentions for 30points
 //The grade you compute is the starting point for course staff, who reserve the right to change the grade if they disagree with your assessment and to deduct points for other issues they may encounter, such as errors in the submission process, naming issues, etc.
 import javafx.application.Application;
 import javafx.scene.Scene;
