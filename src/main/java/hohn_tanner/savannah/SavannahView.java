@@ -2,9 +2,8 @@ package hohn_tanner.savannah;
 
 import javafx.scene.layout.*;
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
-public class SavannahView extends GridPane implements PropertyChangeListener {
+public class SavannahView extends GridPane{
 
     private Savannah model;
 
@@ -17,14 +16,6 @@ public class SavannahView extends GridPane implements PropertyChangeListener {
         getChildren().clear();
         getRowConstraints().clear();
         getColumnConstraints().clear();
-    }
-
-    public void passEvent(PropertyChangeEvent evt){
-        for( int i = 0; i < model.getSize(); i++){
-            for(int j = 0; j < model.getSize(); j++){
-
-            }
-        }
     }
 
     public void setModel(Savannah model) {
@@ -49,10 +40,5 @@ public class SavannahView extends GridPane implements PropertyChangeListener {
                 this.add(btn, j, i);
             }
         }
-    }
-
-    @Override //GRADING: OBSERVE
-    public void propertyChange(PropertyChangeEvent evt) {
-
     }
 }

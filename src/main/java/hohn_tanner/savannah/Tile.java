@@ -7,8 +7,8 @@ public class Tile {
 
     private Animal animalHolder;
     private PropertyChangeSupport subject;
-    private int row;
-    private int col;
+    private final int row;
+    private final int col;
     //subject goes here
     public Tile(int row, int col){
         this.row = row;
@@ -39,7 +39,7 @@ public class Tile {
                 animalHolder = new None();
             }
         }
-        subject.firePropertyChange("newDay", null, animalHolder);
+        subject.firePropertyChange("newDay", null, animalHolder);//GRADING: TRIGGER
     }
 
     public void setAnimal(Animal a){

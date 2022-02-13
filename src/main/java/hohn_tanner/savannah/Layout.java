@@ -156,10 +156,6 @@ public class Layout implements PropertyChangeListener{
             myList.getSelectionModel().select(0);
             grid.resize( (Integer)evt.getNewValue(), (Integer) evt.getNewValue());
         }
-        if (Objects.equals(evt.getPropertyName(), "setAnimal"))
-        {
-            grid.propertyChange(evt);
-        }
         if (Objects.equals(evt.getPropertyName(), "viewInfo"))
         {
             animalInfo.setText( evt.getNewValue().toString());
